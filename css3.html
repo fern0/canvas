@@ -1,0 +1,164 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CCS3 Canvas</title>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<script language="javascript">
+$(document).ready(function() {
+	 
+
+	/*seleccionando la fuente*/
+    var fontfamily = "65px 'arial'";
+    //valor de la escala inicial
+    var escalalogo = 1;
+   //declaracion de la variable principal - global
+    var ctx;
+
+    //llamada a funcion que configura y valida el canvas
+    creaLogoCss();
+	
+   //Funcion principal 
+    function creaLogoCss(){
+       /*declaración de la variable y poniendola en contexto canvas 2D */
+        ctx = $("#css3canvas")[0].getContext('2d');
+        
+       //estableciendo la fuente a dibujar con canvas
+        ctx.font= fontfamily;
+       //salvando las coordenadas iniciales
+        ctx.save();
+       //Invocando la funcion que dibuja
+        dibujarLogo();     
+    }
+
+    //funcion que dibuja logo css3
+    function dibujarLogo(){
+       /* cantidad para ajustar las coordenadas para dibujar el fondo o escudo del logo. */
+        var inicio = 80;
+        //reniciar el estado de las coordenas
+        ctx.restore();
+        //si es que se le hace zoom al logo
+        ctx.save();
+        //limpiar  canvas
+        ctx.clearRect(0,0,600,400);
+        /*escalando horizontal y verticalmente los valores del dimensionamiento */
+        ctx.scale(escalalogo, escalalogo);
+        //dibujando la palabra CSS
+        ctx.fillText("CSS", 68,60);
+       //desplazando hacia abajo la forma de dibujar en pantalla 
+        ctx.translate(0, inicio);
+
+        //5 caras de color azul
+        ctx.fillStyle = "#1572b6";
+        //incio el path
+        ctx.beginPath();
+        /* moviendo a la posición indicada: abajo a la izquierda fondo escudo*/
+        ctx.moveTo(39, 250);
+        ctx.lineTo(17, 0);
+        ctx.lineTo(262, 0);
+        ctx.lineTo(239, 250);
+        ctx.lineTo(139, 278);
+        ctx.closePath();
+         //rellenar con el color indicado
+        ctx.fill();
+
+          // fondo derecho celeste
+        ctx.fillStyle = "#33a9dc";
+        ctx.beginPath();
+        ctx.moveTo(139, 257);
+        ctx.lineTo(220, 234);
+        ctx.lineTo(239, 20);
+        ctx.lineTo(139, 20);
+        ctx.closePath();        
+        ctx.fill();
+        
+  
+       //Color gris, lado superior izquierdo del 3
+        ctx.fillStyle = "#EBEBEB";
+        ctx.beginPath();
+        ctx.moveTo(139, 82);
+        ctx.lineTo(139, 51);
+        ctx.lineTo(65, 51);
+        ctx.lineTo(67, 82);
+        ctx.closePath();
+        ctx.fill();
+
+
+
+  		//Color gris, lado medio izquierdo del 3
+        ctx.fillStyle = "#EBEBEB";
+        ctx.beginPath();
+        ctx.moveTo(139, 144);
+        ctx.lineTo(139, 113);
+        ctx.lineTo(102, 113);
+        ctx.lineTo(104, 144);
+        ctx.closePath();
+        ctx.fill();
+
+	
+        //Color gris, lado inferior izquierdo del 3
+        ctx.beginPath();
+        ctx.moveTo(139,193);
+        ctx.lineTo(105,184);
+        ctx.lineTo(103,159);
+        ctx.lineTo(72, 159);
+        ctx.lineTo(76, 207);
+        ctx.lineTo(139, 225);
+        ctx.closePath();
+        ctx.fill();
+
+
+    	//color blanco, lado superior derecho del 3
+        ctx.beginPath();
+        ctx.moveTo(139,51);
+       	ctx.lineTo(139,82);
+        ctx.lineTo(213,82);
+        ctx.lineTo(216,51);
+        ctx.closePath();
+        ctx.fill();    
+
+
+        //Color blanco, lado medio derecho del 3
+        ctx.fillStyle = "#EBEBEB";
+        ctx.beginPath();
+        ctx.moveTo(179, 114);
+        ctx.lineTo(181, 82);
+        ctx.lineTo(213, 82);
+        ctx.lineTo(210, 114);
+        ctx.closePath();
+        ctx.fill();
+       
+        //color blanco, lado inferior derecho del 3        
+        ctx.fillStyle="#FFFFF";
+        ctx.beginPath();
+        ctx.moveTo(139,113);
+        ctx.lineTo(139,144);
+        ctx.lineTo(177,144);
+        ctx.lineTo(173, 184);
+        ctx.lineTo(139,193);
+        ctx.lineTo(139, 225);
+        ctx.lineTo(202, 207);
+        ctx.lineTo(210, 113);
+        ctx.closePath();
+        ctx.fill();
+
+               
+    }
+
+
+ });
+
+</script>
+
+</head>
+
+<body>
+<canvas id="css3canvas" width="600" height="400">
+   Tu browser no tiene la capacidad para soportar Canvas, acutalizate...si puedes!! 
+</canvas>
+</body>
+
+
+</html>
